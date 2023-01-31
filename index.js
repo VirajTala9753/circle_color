@@ -3,20 +3,29 @@ let i = 0;
 // scroll.scrollIntoView(false);
 
 const setBg1 = () => {
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  const randomColor = Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0")
+    .toUpperCase();
   document.querySelector(".circle").style.backgroundColor = "#" + randomColor;
 
   return "#" + randomColor;
 };
 
 const setBg2 = () => {
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  const randomColor = Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0")
+    .toUpperCase();
   document.querySelector(".circle1").style.backgroundColor = "#" + randomColor;
   return "#" + randomColor;
 };
 
 const setBg3 = () => {
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  const randomColor = Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0")
+    .toUpperCase();
   document.querySelector(".circle2").style.backgroundColor = "#" + randomColor;
   return "#" + randomColor;
 };
@@ -221,4 +230,3 @@ window.addEventListener("load", () => {
   button_pre.disabled = false;
   button_pre.style.opacity = 1;
 });
-
