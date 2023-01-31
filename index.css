@@ -1,3 +1,8 @@
+body {
+  height: 100vh;
+  width: 100vh;
+}
+
 .main_div {
   display: flex;
   gap: 10px;
@@ -46,6 +51,11 @@
 
 .circle_div {
   margin-top: 40px;
+  width: 250px;
+  overflow-y: auto;
+  max-height: 70vh;
+  /* scroll-behavior: smooth; */
+  position: fixed;
 }
 .first_div_circle {
   height: 20px;
@@ -103,8 +113,6 @@
 }
 
 .active {
-  width: 280px;
-  height: 59px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 50px;
 }
@@ -121,6 +129,9 @@
   cursor: pointer;
   margin: 10px auto;
 }
+.previous_button:hover {
+  background-color: #b7b7b7;
+}
 .next_button {
   background-color: black;
   color: white;
@@ -133,4 +144,15 @@
   cursor: pointer;
   margin: 10px auto;
 }
-
+.next_button:hover {
+  background-color: #b7b7b7;
+}
+.circle_para {
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 59px;
+}
