@@ -155,4 +155,6 @@ body {
   justify-content: space-between;
   width: 100px;
   height: 59px;
+  cursor: pointer;
 }
+

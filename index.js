@@ -59,7 +59,11 @@ function showNext() {
       console.log(index, "prev index");
       console.log(i, "pre i");
       html += `        
-    <div class=${index === i - 1 ? "active " : ""}><div class="circle_para">
+    <div class=${
+      index === i - 1 ? "active " : ""
+    }><div class="circle_para" id="class_para" onclick="changeColor(${
+        element.id
+      })">
     <div class="first_div_circle" style="background-color:${
       element.color
     }"></div>
@@ -118,7 +122,11 @@ function showNext() {
     console.log(index);
     console.log(i);
     html += `        
-    <div class=${index === i ? "active " : ""}><div class="circle_para">
+    <div class=${
+      index === i ? "active " : ""
+    }><div class="circle_para" id="circle_para" onclick="changeColor(${
+      element.id
+    })">
     <div class="first_div_circle" style="background-color:${
       element.color
     }"></div>
@@ -176,7 +184,11 @@ function showPre() {
     console.log(index, "prev index");
     console.log(i, "pre i");
     html += `        
-    <div class=${index === i - 2 ? "active " : ""}><div class="circle_para">
+    <div class=${
+      index === i - 2 ? "active " : ""
+    }><div class="circle_para" id="circle_para" onclick="changeColor(${
+      element.id
+    })">
     <div class="first_div_circle" style="background-color:${
       element.color
     }"></div>
@@ -230,3 +242,45 @@ window.addEventListener("load", () => {
   button_pre.disabled = false;
   button_pre.style.opacity = 1;
 });
+
+function changeColor(id) {
+  // console.log(id, "id is change");
+  console.log("you click on div");
+  let data = JSON.parse(localStorage.getItem("colorData")) || [];
+  let match = data.find((ele) => ele.id === id);
+  console.log(match);
+
+  document.querySelector(".circle").style.backgroundColor = match.color;
+  document.querySelector(".circle1").style.backgroundColor = match.color1;
+  document.querySelector(".circle2").style.backgroundColor = match.color2;
+
+  let html = "";
+  data.forEach((element, index) => {
+    // console.log("", element);
+    // console.log(index, "prev index");
+    // console.log(i, "pre i");
+    html += `        
+    <div class=${
+      index+1 === match.id ? "active " : ""
+    }><div class="circle_para" id="circle_para" onclick="changeColor(${
+      element.id
+    })">
+    <div class="first_div_circle" style="background-color:${
+      element.color
+    }"></div>
+    <div class="first_div_circle1" style="background-color:${
+      element.color1
+    }"></div>
+    <div class="first_div_circle2" style="background-color:${
+      element.color2
+    }"></div></div>
+  </div>
+        `;
+  });
+  let colorContainer = document.querySelector(".circle_div");
+  if (colorData.length !== 0) {
+    colorContainer.innerHTML = html;
+  } else {
+    colorContainer.innerHTML = `nothing`;
+  }
+}
